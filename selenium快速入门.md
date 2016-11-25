@@ -3,7 +3,7 @@
 ## 环境准备
 - 安装Python3
 - 安装selenium
-- 下载安装对应的webdriver（我用的是chromedriver：\\10.10.3.200\共享\yuwei\webdevices\chromedriver.exe）
+- 下载安装对应的webdriver
 
 ## 上代码
 ```python

@@ -12,7 +12,7 @@ from time import sleep
 #打开浏览器
 driver = webdriver.Chrome()
 #键入网址
-driver.get("http://weibo.wondershare.cn/")
+driver.get("http://weibo.xx.cn/")
 #输入邮箱//web元素中，有id的，可以用find_element_by_id方法寻找元素，用send_keys方法输入文本
 driver.find_element_by_id("email").send_keys("真实邮箱")
 #输入密码
@@ -20,10 +20,48 @@ driver.find_element_by_id("password").send_keys("真实密码")
 #点击登录//没有id的元素，可以使用find_element_by_xpath，点击操作用click()方法
 driver.find_element_by_xpath("/html/body/div[1]/div[3]/div[3]/div[2]/div[2]/form/div/button").click()
 #输入微博发送内容
-driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div/div[1]/div[1]/div/textarea").send_keys("#感恩2016感谢有你 感谢MG测试部的小伙伴们")
+driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div/div[1]/div[1]/div/textarea").send_keys("xx")
 #点击发表//还可以通过find_element_by_partial_link_text找到元素
 driver.find_element_by_partial_link_text("发表").click()
 #关闭浏览器
+driver.quit()
+```
+```
+from selenium import webdriver
+from time import sleep
+driver = webdriver.Chrome()
+driver.get("http://mail.xx.cn/")
+now_handle = driver.current_window_handle #获取当前窗口句柄
+print(now_handle)   #输出当前获取的窗口句柄
+sleep(2)
+#输入框输入内容
+driver.find_element_by_id("username").send_keys("email@xx.cn")
+sleep(2)
+driver.find_element_by_id("password").send_keys("password")
+sleep(2)
+
+driver.find_element_by_xpath("/html/body/form/table/tbody/tr[2]/td[2]/table[1]/tbody/tr[7]/td/table/tbody/tr[3]/td/input[1]").click()
+
+now_handle1 = driver.current_window_handle #获取当前窗口句柄
+print(now_handle1)    #输出当前获取的窗口句柄
+driver.find_element_by_id("newmsgc").click()
+
+now_handle2 = driver.current_window_handle #获取当前窗口句柄
+print(now_handle2)    #输出当前获取的窗口句柄
+all_handles = driver.window_handles
+print(all_handles)
+print(all_handles[1])
+driver.switch_to_window(all_handles[1])
+
+driver.find_element_by_id("divTo").send_keys("mail@xx.cn")
+sleep(2)
+driver.find_element_by_id("txtSubj").click()
+driver.find_element_by_id("txtSubj").send_keys("testmail")
+sleep(2)
+
+driver.find_element_by_id("divToolbarButtonsend").click()
+
+sleep(5)
 driver.quit()
 ```
 

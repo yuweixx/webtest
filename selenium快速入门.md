@@ -6,6 +6,7 @@
 - 下载安装对应的webdriver
 
 ## 上代码
+### 发微博
 ```python
 from selenium import webdriver
 from time import sleep
@@ -26,7 +27,7 @@ driver.find_element_by_partial_link_text("发表").click()
 #关闭浏览器
 driver.quit()
 ```
-
+### 发邮件
 ```
 from selenium import webdriver
 from time import sleep
@@ -38,25 +39,19 @@ driver.find_element_by_id("username").send_keys("email@xx.cn")
 sleep(2)
 driver.find_element_by_id("password").send_keys("password")
 sleep(2)
-
 driver.find_element_by_xpath("/html/body/form/table/tbody/tr[2]/td[2]/table[1]/tbody/tr[7]/td/table/tbody/tr[3]/td/input[1]").click()
-
-
 driver.find_element_by_id("newmsgc").click()
 #处理新的窗口：获取所有窗口的句柄，再切换到其中一个
 all_handles = driver.window_handles
 print(all_handles)
 print(all_handles[1])
 driver.switch_to_window(all_handles[1])
-
 driver.find_element_by_id("divTo").send_keys("mail@xx.cn")
 sleep(2)
 driver.find_element_by_id("txtSubj").click()
 driver.find_element_by_id("txtSubj").send_keys("testmail")
 sleep(2)
-
 driver.find_element_by_id("divToolbarButtonsend").click()
-
 sleep(5)
 driver.quit()
 ```

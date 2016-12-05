@@ -28,7 +28,7 @@ driver.find_element_by_partial_link_text("发表").click()
 driver.quit()
 ```
 ### 发邮件
-```
+```python
 from selenium import webdriver
 from time import sleep
 driver = webdriver.Chrome()

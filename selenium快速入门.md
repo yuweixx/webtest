@@ -26,13 +26,12 @@ driver.find_element_by_partial_link_text("发表").click()
 #关闭浏览器
 driver.quit()
 ```
+
 ```
 from selenium import webdriver
 from time import sleep
 driver = webdriver.Chrome()
 driver.get("http://mail.xx.cn/")
-now_handle = driver.current_window_handle #获取当前窗口句柄
-print(now_handle)   #输出当前获取的窗口句柄
 sleep(2)
 #输入框输入内容
 driver.find_element_by_id("username").send_keys("email@xx.cn")
@@ -42,12 +41,9 @@ sleep(2)
 
 driver.find_element_by_xpath("/html/body/form/table/tbody/tr[2]/td[2]/table[1]/tbody/tr[7]/td/table/tbody/tr[3]/td/input[1]").click()
 
-now_handle1 = driver.current_window_handle #获取当前窗口句柄
-print(now_handle1)    #输出当前获取的窗口句柄
-driver.find_element_by_id("newmsgc").click()
 
-now_handle2 = driver.current_window_handle #获取当前窗口句柄
-print(now_handle2)    #输出当前获取的窗口句柄
+driver.find_element_by_id("newmsgc").click()
+#处理新的窗口：获取所有窗口的句柄，再切换到其中一个
 all_handles = driver.window_handles
 print(all_handles)
 print(all_handles[1])

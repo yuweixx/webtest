@@ -55,7 +55,7 @@ Jmeter的界面是没有默认展示结果的区域，需要在Thread Group下�
 - 常用的测试报告试图：View Results Tree、View Results in Table、Aggregate Report。
 - 注：每次执行测试，都会刷新结果，注意保存结果。
 
-##相关资料推荐：
+## 相关资料推荐：
 
 jmeter官网：
 http://jmeter.apache.org/usermanual/get-started.html
